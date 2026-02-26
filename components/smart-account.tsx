@@ -1,18 +1,10 @@
 'use client';
 
 import { useSmartAccount } from '@/hooks/useSmartAccount';
-import { Button } from './ui/button';
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from './ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 
 export function SmartAccount() {
-  const { smartAccount, createSmartAccount } = useSmartAccount();
+  const { smartAccount } = useSmartAccount();
 
   return (
     <Card>
@@ -22,13 +14,6 @@ export function SmartAccount() {
       <CardContent>
         <p>{`Address: ${smartAccount?.address ?? '-'}`}</p>
       </CardContent>
-      <CardFooter>
-        <CardAction>
-          <Button onClick={async () => await createSmartAccount()}>
-            Generate new
-          </Button>
-        </CardAction>
-      </CardFooter>
     </Card>
   );
 }
